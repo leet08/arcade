@@ -9,12 +9,12 @@
 		}
 		ul {
 			list-style: none;
-			margin: 0;
-			padding: 0;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
 			border-bottom: 1px solid #ccc;
+			font-family: serif;
+			background-color: #0060be;
 		}
 
 		li {
@@ -27,14 +27,42 @@
 		}
 
 		li a {
-			color: #333;
+			color: #fff;
 			text-decoration: none;
 		}
 
 		li a:hover {
 			text-decoration: underline;
 		}
+		.collage {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+		}
+		.collage img {
+			width: 150px;
+			height: 150px;
+			margin: 10px;
+			object-fit: cover;
+		}
 	</style>
+	<script>
+		window.onload = function() {
+			var iframe = document.getElementById("myIframe");
+			var message = document.getElementById("message");
+			var currentDate = new Date();
+			var currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, Tuesday = 2, etc.
+			var currentHour = currentDate.getHours();
+			if (currentDay === 1 && currentHour >= 13 && currentHour < 16) { // Monday from 1-4pm
+				iframe.style.display = "block"; // show the iframe
+				message.style.display = "none"; // hide the message
+			} else {
+				iframe.style.display = "none"; // hide the iframe
+				message.style.display = "block"; // show the message
+			}
+		};
+	</script>
 </head>
 <body>
 	<div>
@@ -47,7 +75,7 @@
 
 
 <div>
-	<iframe id="my-iframe1" src="https://archive.org/embed/ODELL_201905" width="550" height="530" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-pointer-lock allow-top-navigation"></iframe>
+	<iframe id="myIframe" src="https://archive.org/embed/ODELL_201905" width="550" height="530" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-pointer-lock allow-top-navigation"></iframe>
 </div>
  </body>
 </html>
