@@ -9,12 +9,12 @@
 		}
 		ul {
 			list-style: none;
-			margin: 0;
-			padding: 0;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
 			border-bottom: 1px solid #ccc;
+			font-family: serif;
+			background-color: #0060be;
 		}
 
 		li {
@@ -27,12 +27,24 @@
 		}
 
 		li a {
-			color: #333;
+			color: #fff;
 			text-decoration: none;
 		}
 
 		li a:hover {
 			text-decoration: underline;
+		}
+		.collage {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+		}
+		.collage img {
+			width: 150px;
+			height: 150px;
+			margin: 10px;
+			object-fit: cover;
 		}
 	</style>
 	<script>
