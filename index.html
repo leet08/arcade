@@ -10,12 +10,11 @@
 		}
 		ul {
 			list-style: none;
-			margin: 0;
-			padding: 0;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
 			border-bottom: 1px solid #ccc;
+			font-family: serif;
 		}
 
 		li {
@@ -35,10 +34,21 @@
 		li a:hover {
 			text-decoration: underline;
 		}
+		.collage {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+		}
+		.collage img {
+			width: 150px;
+			height: 150px;
+			margin: 10px;
+			object-fit: cover;
+		}
 	</style>
 </head>
 <body>
-	
 	<div>
 	<ul>
 		<li><a href="carmen.html">Where in the World is Carmen Sandiego</a></li>
@@ -46,14 +56,17 @@
 		<li><a href="odell.html">Odell Down Under</a></li>
 	</ul>
 	</div>
+	<div>
+		<h1>
+			Welcome to the TRA Computer Class Arcade!
+		</h1>
+		This website is only available during class hours.
 
-
-<div>
-	<h1>
-		Welcome to the TRA Computer Class Arcade!
-	</h1>
-	This website is only available during class hours.
-	
-</div>
+	</div>
+	<div class="collage">
+		<img src="https://www.pcworld.com/wp-content/uploads/2022/12/dell-g2723h-1.jpg">
+		<img src="https://media.gcflearnfree.org/content/5e31ca08bc7eff08e4063776_01_29_2020/ProgrammingIllustration.png">
+		<img src="https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_1/v1569520149/marlborough/spuqptbjgx01pkknl1jy/CodingClass-342.jpg">
+	</div>
  </body>
 </html>
