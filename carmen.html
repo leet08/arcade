@@ -35,6 +35,22 @@
 			text-decoration: underline;
 		}
 	</style>
+	<script>
+		window.onload = function() {
+			var iframe = document.getElementById("myIframe");
+			var message = document.getElementById("message");
+			var currentDate = new Date();
+			var currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, Tuesday = 2, etc.
+			var currentHour = currentDate.getHours();
+			if (currentDay === 1 && currentHour >= 13 && currentHour < 16) { // Monday from 1-4pm
+				iframe.style.display = "block"; // show the iframe
+				message.style.display = "none"; // hide the message
+			} else {
+				iframe.style.display = "none"; // hide the iframe
+				message.style.display = "block"; // show the message
+			}
+		};
+	</script>
 </head>
 <body>
 	<div>
@@ -47,7 +63,7 @@
 
 
 <div>
-	<iframe id="my-iframe1" src="https://archive.org/embed/msdos_Where_in_the_World_is_Carmen_Sandiego_Deluxe_1990" width="550" height="530" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-pointer-lock allow-top-navigation"></iframe>
+	<iframe id="myIframe" src="https://archive.org/embed/msdos_Where_in_the_World_is_Carmen_Sandiego_Deluxe_1990" width="550" height="530" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-pointer-lock allow-top-navigation"></iframe>
 </div>
  </body>
 </html>
