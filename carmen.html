@@ -65,11 +65,11 @@
 		fetch("res/ls.txt")
 		  .then(response => response.text())
 		  .then(data => {
-		    const links = data.split("\n").trim();
-		    const firstLink = links[0];
+		    const links = data.split("\n");
+		    const thisLink = links[0].trim();
 			
 			const iframe = document.getElementById("myIframe"); 
-			iframe.src = firstLink;
+			iframe.src = thisLink;
 		  });
 		
 		
