@@ -54,7 +54,7 @@
 			var currentDate = new Date();
 			var currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, Tuesday = 2, etc.
 			var currentHour = currentDate.getHours();
-			if (currentDay === 1 && currentHour >= 13 && currentHour < 16) { 
+			if (currentDay === 1 && currentHour >= 13 && currentHour < 24) { 
 				iframe.style.display = "block"; // show the iframe
 				message.style.display = "none"; // hide the message
 			} else {
@@ -88,7 +88,7 @@
 
 <div>
 	<p id="message" style="display:none;">This content is only available during class hours.</p>
-	<iframe id="myIframe" width="550" height="530" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-pointer-lock allow-top-navigation"></iframe>
+	<iframe id="myIframe" style="display:none;" width="550" height="530" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-pointer-lock allow-top-navigation"></iframe>
 </div>
 	<script>
 		
