@@ -67,10 +67,12 @@
 		  .then(data => {
 		    const links = data.split("\n");
 		    const firstLink = links[0];
+			
+			const iframe = document.getElementById("myIframe"); 
+			iframe.src = firstLink;
 		  });
 		
-		const iframe = document.getElementById("myIframe"); 
-		iframe.src = firstLink;
+		
 
 	</script>
 </head>
