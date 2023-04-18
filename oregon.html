@@ -57,21 +57,22 @@
 			if (currentDay === 1 && currentHour >= 13 && currentHour < 16) { // Monday from 1-4pm
 				iframe.style.display = "block"; // show the iframe
 				message.style.display = "none"; // hide the message
+				
+				fetch("res/ls.txt")
+				  .then(response => response.text())
+				  .then(data => {
+				    const links = data.split("\n");
+				    const thisLink = links[1].trim();
+
+					const iframe = document.getElementById("myIframe"); 
+					iframe.src = thisLink;
+				  });
 			} else {
 				iframe.style.display = "none"; // hide the iframe
 				message.style.display = "block"; // show the message
 			}
 		};
 		
-		fetch("res/ls.txt")
-		  .then(response => response.text())
-		  .then(data => {
-		    const links = data.split("\n");
-		    const thisLink = links[1].trim();
-			
-			const iframe = document.getElementById("myIframe"); 
-			iframe.src = thisLink;
-		  });
 	</script>
 </head>
 <body>
