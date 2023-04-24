@@ -48,42 +48,47 @@
 		}
 	</style>
 	<script>
-		window.onload = function() {
-			
-			fetch('https://worldtimeapi.org/api/ip')
-			  .then(response => response.json())
+		
+		function checkFunction() {
+		  fetch('https://worldtimeapi.org/api/ip')
+		    .then(response => response.json())
+		    .then(data => {
+		      const currentDate = new Date(data.datetime);
+		      console.log(currentDate);
+		      var iframe = document.getElementById("myIframe");
+		      var message = document.getElementById("message");
+
+		      const currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, Tuesday = 2, etc.
+		      const currentHour = currentDate.getHours();
+		      if (currentDay === 1 && currentHour >= 13 && currentHour < 17) {
+			iframe.style.display = "block"; // show the iframe
+			message.style.display = "none"; // hide the message
+
+			fetch("res/ls.txt")
+			  .then(response => response.text())
 			  .then(data => {
-			    const currentDate = new Date(data.datetime);
-				console.log(currentDate);
-				var iframe = document.getElementById("myIframe");
-				var message = document.getElementById("message");
+			    const links = data.split("\n");
+			    const thisLink = links[0].trim();
 
-				const currentDay = currentDate.getDay(); // Sunday = 0, Monday = 1, Tuesday = 2, etc.
-				const currentHour = currentDate.getHours();
-				if (currentDay === 1 && currentHour >= 13 && currentHour < 16) {
-					iframe.style.display = "block"; // show the iframe
-					message.style.display = "none"; // hide the message
-
-					fetch("res/ls.txt")
-					  .then(response => response.text())
-					  .then(data => {
-					    const links = data.split("\n");
-					    const thisLink = links[0].trim();
-
-						const iframe = document.getElementById("myIframe"); 
-						iframe.src = thisLink;
-					  });
-				} else {
-					iframe.style.display = "none"; // hide the iframe
-					message.style.display = "block"; // show the message
-				}
-			  })
-			  .catch(error => {
-			    console.error(error);
+			    const iframe = document.getElementById("myIframe"); 
+			    iframe.src = thisLink;
 			  });
+		      } else {
+			iframe.style.display = "none"; // hide the iframe
+			message.style.display = "block"; // show the message
+		      }
+		    })
+		    .catch(error => {
+		      console.error(error);
+		    });
+		}
+		
+		window.onload = checkFunction();
 
-			
-		};
+		// Call the function every 30 minutes using setInterval()
+		setInterval(checkFunction, 30 * 60 * 1000);
+
+		
 	</script>
 </head>
 <body>
