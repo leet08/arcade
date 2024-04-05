@@ -67,7 +67,7 @@
 			  .then(response => response.text())
 			  .then(data => {
 			    const links = data.split("\n");
-			    const thisLink = links[0].trim();
+			    const thisLink = links[1].trim();
 
 			    const iframe = document.getElementById("myIframe"); 
 			    iframe.src = thisLink;
